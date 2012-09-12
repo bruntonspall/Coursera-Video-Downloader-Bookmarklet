@@ -44,7 +44,7 @@ function buildCommand(){
             // TODO: what has been seen cannot be unseen!
 
             var links = $lectureLink.parent().find(".item_resource").find("a");
-            var downloadLink = links[links.length - 1].attr('href');
+            var downloadLink = $(links[links.length - 1]).attr('href');
 
             var cookieHeader = ' --header \"Cookie:'+ document.cookie + '\" ';
 
