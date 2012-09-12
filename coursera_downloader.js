@@ -40,7 +40,7 @@ function buildDownloadCommand(sectionIndex, sectionName, videoIndex, baseName, d
 
     var cmd = 'echo "' + filename + '" && ';
     cmd += 'mkdir -p "' + directory + '" && ';
-    cmd += 'curl -L -C - ' + cookieHeader + downloadLink + ' -o "' + filename + '"';
+    cmd += 'curl -L -C - ' + cookieHeader + " " + '"' + downloadLink + '" -o "' + filename + '"';
     return cmd;
 }
 
