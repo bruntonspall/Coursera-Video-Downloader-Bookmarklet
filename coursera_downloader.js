@@ -39,7 +39,13 @@ function buildCommand(){
     $(this).parent().next().find("a.lecture-link").each(function(videoIndex){
       var $lectureLink = $(this);
       var videoName = $.trim($lectureLink.text());
-      var downloadLink = $lectureLink.attr('href').replace('view','download.mp4');
+
+      // TODO: here should be a more complex way of finding the links. It should also be possible to download SRT, PDF, ...
+      // TODO: what has been seen cannot be unseen!
+
+      var links = $lectureLink.parent().find(".item_resource").find("a");
+      var downloadLink = links[links.length - 1].attr('href');
+
       var cookieHeader = ' --header \"Cookie:'+ document.cookie + '\" ';
       
       var directory = (sectionIndex+1) + '. ' + sectionName + '/';
