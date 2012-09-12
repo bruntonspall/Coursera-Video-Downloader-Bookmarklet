@@ -36,7 +36,7 @@ function buildDownloadCommand(sectionIndex, sectionName, videoIndex, baseName, d
     var cookieHeader = ' --header \"Cookie:' + document.cookie + '\" ';
 
     var directory = (sectionIndex + 1) + '. ' + sectionName + '/';
-    var filename = directory + (videoIndex + 1) + '. ' + baseName + extension;
+    var filename = directory + (videoIndex + 1) + '. ' + baseName + '.' + extension;
 
     var cmd = 'echo "' + filename + '" && ';
     cmd += 'mkdir -p "' + directory + '" && ';
@@ -50,7 +50,8 @@ function buildCommand(){
         var sectionName = $(this).text().replace(/Chapter .+ - /,"").replace(/\:/,'-').replace(/^(V|I|X)+\. /,'');
         $(this).parent().next().find("a.lecture-link").each(function(videoIndex){
             var $lectureLink = $(this);
-            var baseName = $.trim($lectureLink.text());
+            // remove clip length from base name...
+            var baseName = $.trim($lectureLink.text()).replace(/ \([0-9]*:[0-9]*\)/,"");
 
             // TODO: here should be a more complex way of finding the links. It should also be possible to download SRT, PDF, ...
             // TODO: what has been seen cannot be unseen!
