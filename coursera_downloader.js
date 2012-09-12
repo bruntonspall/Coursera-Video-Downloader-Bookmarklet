@@ -63,15 +63,15 @@ function buildCommand(){
                     var $link = $(links[i]);
                     var downloadLink = $link.attr('href');
 
-                    if(downloadLink.contains("txt")) {
+                    if(downloadLink.indexOf("txt") >= 0) {
                         extension = "txt";
-                    } else if(downloadLink.contains("srt")) {
+                    } else if(downloadLink.indexOf("srt") >= 0) {
                         extension = "srt";
-                    } else if(downloadLink.contains("pdf")) {
+                    } else if(downloadLink.indexOf("pdf") >= 0) {
                         extension = "pdf";
-                    } else if(downloadLink.contains("ppt")) {
+                    } else if(downloadLink.indexOf("ppt") >= 0) {
                         extension = "ppt";
-                    } else if(downloadLink.contains("pptx")) {
+                    } else if(downloadLink.indexOf("pptx") >= 0) {
                         extension = "pptx";
                     }
 
