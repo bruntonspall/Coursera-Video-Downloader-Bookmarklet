@@ -60,7 +60,7 @@ function buildCommand(){
             if($(this).find(".multidownload").attr("checked"))
 
                 for(var i = 0; i < links.length; i++) {
-                    var $link = $($links[i]);
+                    var $link = $(links[i]);
                     var downloadLink = link.attr('href');
 
                     if(downloadLink.contains("txt")) {
