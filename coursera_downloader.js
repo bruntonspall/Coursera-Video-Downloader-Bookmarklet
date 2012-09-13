@@ -74,6 +74,8 @@ function buildCommand(){
                         extension = "ppt";
                     } else if(downloadLink.indexOf("pptx") >= 0) {
                         extension = "pptx";
+                    } else if(downloadLink.indexOf("mp4") >= 0) {
+                        extension = "mp4";
                     }
 
                     //var downloadLink = $(links[links.length - 1]).attr('href');
