@@ -76,6 +76,9 @@ function buildCommand(){
                         extension = "pptx";
                     } else if(downloadLink.indexOf("mp4") >= 0) {
                         extension = "mp4";
+                    } else {
+                        // TODO What to do with the drunken sailor? Add a error/log box
+                        continue;
                     }
 
                     //var downloadLink = $(links[links.length - 1]).attr('href');
