@@ -46,7 +46,7 @@ function buildDownloadCommand(sectionIndex, sectionName, videoIndex, baseName, d
 
 function buildCommand(){
     var command = "";
-    $("h3.list_header").each(function(sectionIndex){
+    $(".course-item-list-header > h3").each(function(sectionIndex){
         var sectionName = $(this).text().replace(/Chapter .+ - /,"").replace(/\:/,'-').replace(/^(V|I|X)+\. /,'');
         $(this).parent().next().find("a.lecture-link").each(function(videoIndex){
             var $lectureLink = $(this);
@@ -56,7 +56,7 @@ function buildCommand(){
             // TODO: here should be a more complex way of finding the links. It should also be possible to download SRT, PDF, ...
             // TODO: what has been seen cannot be unseen!
 
-            var links = $lectureLink.parent().find(".item_resource").find("a");
+            var links = $lectureLink.parent().find(".course-lecture-item-resource").find("a");
 
             if($(this).find(".multidownload").attr("checked"))
 
@@ -96,7 +96,7 @@ buildCommand();
 $(".multidownload_chapter").unbind();
 $(".multidownload_chapter").click(function(e) {
     var check = $(this).attr("checked") ? true : false;
-    $(this).parents(".list_header_link").next(".course-item-list-section-list").find(".multidownload").each(function(){
+    $(this).parents(".course-item-list-header").next(".course-item-list-section-list").find(".multidownload").each(function(){
         $(this).prop("checked", check);
         console.log(check);
     });
