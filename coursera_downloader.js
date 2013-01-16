@@ -1,9 +1,9 @@
 // insert the "Download All Selected" header and textarea
 
-$("div#page-content > div.item_list").before("<br><br><br><h3>Download All Selected</h3>Cut and paste this bash code into the command line. <a href='http://ma-ver-ick.github.com/Coursera-Video-Downloader-Bookmarklet/#select_all' target='_blank'>How?</a><br><textarea id='cmd' rows='5'></textarea><br><br>")
+$("div#page-content > div.course-item-list").before("<br><br><br><h3>Download All Selected</h3>Cut and paste this bash code into the command line. <a href='http://ma-ver-ick.github.com/Coursera-Video-Downloader-Bookmarklet/#select_all' target='_blank'>How?</a><br><textarea id='cmd' rows='5'></textarea><br><br>")
 
 // section selectors
-$("h3.list_header").prepend("<a data-placement='left' rel='twipsy' data-original-title='Include chapter in multi-download' style='margin-right:10px'><input type='checkbox' class='multidownload_chapter'></input></a>")
+$("div.course-item-list-header").prepend("<a data-placement='left' rel='twipsy' data-original-title='Include chapter in multi-download' style='margin-right:10px'><input type='checkbox' class='multidownload_chapter'></input></a>")
 
 // video selectors
 $(".lecture-link").prepend("<a data-placement='left' rel='twipsy' data-original-title='Include in multi-download'><input type='checkbox' class='multidownload'></input></a>")
@@ -21,7 +21,7 @@ function refreshSectionCheckmarks(){
         var chapterCheckbox = $(this);
         chapterCheckbox.prop("checked", true);
 
-        $(this).parents(".list_header_link").next(".item_section_list").find(".multidownload").each(function(){
+        $(this).parents(".list_header_link").next(".course-item-list-section-list").find(".multidownload").each(function(){
             if(!$(this).attr("checked")){
                 chapterCheckbox.prop("checked", false);
                 return;
@@ -96,7 +96,7 @@ buildCommand();
 $(".multidownload_chapter").unbind();
 $(".multidownload_chapter").click(function(e) {
     var check = $(this).attr("checked") ? true : false;
-    $(this).parents(".list_header_link").next(".item_section_list").find(".multidownload").each(function(){
+    $(this).parents(".list_header_link").next(".course-item-list-section-list").find(".multidownload").each(function(){
         $(this).prop("checked", check);
         console.log(check);
     });
